@@ -33,9 +33,9 @@ class AnimatedBookWidget extends StatefulWidget {
   ///
   AnimatedBookWidget({
     required this.cover,
-    required this.size,
     required Widget content,
     super.key,
+    this.size,
     this.padding = EdgeInsets.zero,
     this.blurRadius = 4,
     this.spreadRadius = 0.5,
@@ -81,10 +81,10 @@ class AnimatedBookWidget extends StatefulWidget {
   ///
   AnimatedBookWidget.builder({
     required this.cover,
-    required this.size,
     required AnimatedBookContentBuilder contentBuilder,
     Widget? contentChild,
     super.key,
+    this.size,
     this.padding = EdgeInsets.zero,
     this.blurRadius = 4,
     this.spreadRadius = 0.5,
@@ -106,7 +106,7 @@ class AnimatedBookWidget extends StatefulWidget {
   final AnimatedContentDelegate contentDelegate;
 
   /// The size of the book.
-  final Size size;
+  final Size? size;
 
   /// Padding applied to the book.
   final EdgeInsets padding;
@@ -151,7 +151,7 @@ class _AnimatedBookWidgetState extends State<AnimatedBookWidget>
   );
 
   AnimatedBookStatus bookStatus = AnimatedBookStatus.dismissed;
-  late Size size = widget.size;
+  late Size? size = widget.size;
   late Widget cover = widget.cover;
   late AnimatedContentDelegate contentDelegate = widget.contentDelegate;
   late EdgeInsets padding = widget.padding;
